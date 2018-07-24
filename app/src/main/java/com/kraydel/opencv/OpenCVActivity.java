@@ -147,9 +147,9 @@ public class OpenCVActivity extends Activity
         }
         */
         // Create a grayscale image
-        /*
-        Imgproc.cvtColor(aInputFrame, grayscaleImage, Imgproc.COLOR_RGB2GRAY);
 
+        Imgproc.cvtColor(aInputFrame, grayscaleImage, Imgproc.COLOR_RGB2GRAY);
+        /*
         if(firstFrame)
         {
             firstFrame = false;
@@ -182,8 +182,8 @@ public class OpenCVActivity extends Activity
 
         // If there are any objects found, draw a rectangle around it
         Rect[] objectArray = objects.toArray();
-        for (Rect anObjectArray : objectArray) {
-            Imgproc.rectangle(aInputFrame, anObjectArray.tl(), anObjectArray.br(), new Scalar(0, 255, 0, 255), 3);
+        for (Rect object : objectArray) {
+            Imgproc.rectangle(aInputFrame, object.tl(), object.br(), new Scalar(0, 255, 0, 255), 3);
         }
 
         /*
