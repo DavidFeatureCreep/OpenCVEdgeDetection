@@ -149,7 +149,7 @@ public class OpenCVActivity extends Activity
         // Create a grayscale image
 
         Imgproc.cvtColor(aInputFrame, grayscaleImage, Imgproc.COLOR_RGB2GRAY);
-        /*
+
         if(firstFrame)
         {
             firstFrame = false;
@@ -171,7 +171,8 @@ public class OpenCVActivity extends Activity
         previousFrame = grayscaleImage.clone();
 
         // Core.flip(aInputFrame, grayscaleImage.t(), 1);
-        */
+
+        /*
         MatOfRect objects = new MatOfRect();
 
         // Use the classifier to detect objects
@@ -185,7 +186,7 @@ public class OpenCVActivity extends Activity
         for (Rect object : objectArray) {
             Imgproc.rectangle(aInputFrame, object.tl(), object.br(), new Scalar(0, 255, 0, 255), 3);
         }
-
+        */
         /*
         Mat histogram = new Mat();
         MatOfInt histSize = new MatOfInt(401);
