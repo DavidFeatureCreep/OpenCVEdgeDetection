@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/OpenCVTest.iml" filepath="$PROJECT_DIR$/OpenCVTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/OpenCVTestMotionDetection2.iml" filepath="$PROJECT_DIR$/.idea/OpenCVTestMotionDetection2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OpenCVTestMotionDetection.iml" filepath="$PROJECT_DIR$/OpenCVTestMotionDetection.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/openCVLibrary341/openCVLibrary341.iml" filepath="$PROJECT_DIR$/openCVLibrary341/openCVLibrary341.iml" />
       <module fileurl="file://$PROJECT_DIR$/openCVLibrary341/openCVLibrary341.iml" filepath="$PROJECT_DIR$/openCVLibrary341/openCVLibrary341.iml" />
     </modules>
   </component>

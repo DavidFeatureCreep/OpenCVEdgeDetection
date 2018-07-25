@@ -74,7 +74,6 @@ public class OpenCVActivity extends Activity
             is.close();
             os.close();
 
-
             // Load the cascade classifier
             cascadeClassifier = new CascadeClassifier(mCascadeFile.getAbsolutePath());
             Log.d("OpenCVActivity", "cascadeClassifier " + cascadeClassifier.toString());
@@ -110,44 +109,7 @@ public class OpenCVActivity extends Activity
 
     @Override
     public Mat onCameraFrame(Mat aInputFrame) {
-        /*
-        String csvFile = "C:\\Users\\David\\Documents\\Temperatures2.txt";
-        BufferedReader br = null;
-        String line = "";
-        String cvsSplitBy = ",";
-        Mat image = new Mat(32, 32, CV_16UC1);
-        int j = 0;
-        try
-        {
-
-            br = new BufferedReader(new FileReader(csvFile));
-            while ((line = br.readLine()) != null)
-            {
-                // use comma as separator
-                String[] data = line.split(cvsSplitBy);
-                for(int i = 0; i < data.length; i++)
-                {
-                    image.put(i, j, (int)(10 * Double.parseDouble(data[i])));
-                }
-                j++;
-            }
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        finally {
-            if (br != null) {
-                try {
-                    br.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        */
         // Create a grayscale image
-
         Imgproc.cvtColor(aInputFrame, grayscaleImage, Imgproc.COLOR_RGB2GRAY);
 
         if(firstFrame)
@@ -163,39 +125,13 @@ public class OpenCVActivity extends Activity
             Imgproc.threshold(differenceFrame, binarisedFrame, 50, 255, Imgproc.THRESH_BINARY);
             Imgproc.erode(binarisedFrame, binarisedFrame, kernel);
             Imgproc.dilate(binarisedFrame, binarisedFrame, kernel);
-            List<MatOfPoint> contours = new ArrayList<MatOfPoint>();
+            List<MatOfPoint> contours = new ArrayList<>();
             contours.clear();
             Imgproc.findContours(binarisedFrame, contours, new Mat(), Imgproc.RETR_LIST, Imgproc.CHAIN_APPROX_SIMPLE);
             Imgproc.drawContours(aInputFrame, contours, -1, new Scalar(255, 0, 0), 5);
         }
         previousFrame = grayscaleImage.clone();
 
-        // Core.flip(aInputFrame, grayscaleImage.t(), 1);
-
-        /*
-        MatOfRect objects = new MatOfRect();
-
-        // Use the classifier to detect objects
-        if (cascadeClassifier != null) {
-            cascadeClassifier.detectMultiScale(grayscaleImage, objects, 1.1, 4, 2,
-                    new Size(absoluteFaceSize, absoluteFaceSize), new Size());
-        }
-
-        // If there are any objects found, draw a rectangle around it
-        Rect[] objectArray = objects.toArray();
-        for (Rect object : objectArray) {
-            Imgproc.rectangle(aInputFrame, object.tl(), object.br(), new Scalar(0, 255, 0, 255), 3);
-        }
-        */
-        /*
-        Mat histogram = new Mat();
-        MatOfInt histSize = new MatOfInt(401);
-        final MatOfFloat histRange = new MatOfFloat(0f, 400f);
-        List<Mat> images = new ArrayList<Mat> ();
-        images.add(image);
-        Imgproc.calcHist(images, 1, new Mat(), histogram, histSize, histRange);
-        Imgproc.putText(aInputFrame, "Hello World!", new Point(400, 400), Core.FONT_HERSHEY_SIMPLEX, 1, new Scalar(0, 0, 0), 5);
-        */
         return aInputFrame;
     }
 
