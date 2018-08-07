@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.kraydel.motiondetection"
+        applicationId "com.kraydel.edgedetection"
         minSdkVersion 23
         targetSdkVersion 26
         versionCode 1
